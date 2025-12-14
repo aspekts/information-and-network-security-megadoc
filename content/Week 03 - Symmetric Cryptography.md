@@ -1,3 +1,19 @@
+---
+title: Week 03 - Symmetric Cryptography
+date: 2025-12-14
+tags:
+  - cryptography
+  - symmetric
+  - math
+  - integrity
+aliases:
+  - Block Ciphers
+  - Stream Ciphers
+  - Hash Functions
+  - MAC
+summary: Encryption where keys are shared. Covers AES, RC4, Perfect Secrecy, and Modes of Operation (ECB/CBC).
+---
+
 | Term                                        | Definition                                                                                                                                                                                                                     | Exam Context/Example                                                                                                                                                                                       |
 | :------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Cryptography**                            | The science of keeping information secure, particularly referring to confidentiality and integrity (through hashing).                                                                                                          | Provides tools that underlie most modern security protocols and is the key enabling technology for protecting distributed systems.                                                                         |

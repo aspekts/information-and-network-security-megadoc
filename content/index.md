@@ -1,6 +1,6 @@
 ---
-title: Security Exam Dashboard
-date: 2025-05-24
+title: Info & Network Security Exam Dashboard
+date: 2025-12-14
 tags:
   - exam
   - dashboard

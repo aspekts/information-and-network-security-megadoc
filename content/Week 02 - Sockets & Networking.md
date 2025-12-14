@@ -1,3 +1,18 @@
+---
+title: Week 02 - Sockets & Networking
+date: 2025-12-13
+tags:
+  - networking
+  - sockets
+  - TCP
+  - code-implementation
+aliases:
+  - TCP Handshake
+  - Secure Sockets
+  - Client-Server
+summary: Technical implementation of sockets, the 3-way handshake, and upgrading to secure connections.
+---
+
 | Term                                     | Definition                                                                                                                                                                                                                         | Exam Context/Example                                                                                                                                                                                        |
 | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Secure Sockets Layer (SSL)**           | A communication protocol (or set of rules) used to create a secure connection between two devices or applications on a network. It is an older technology that contains known security flaws. Stands for **Secure Sockets Layer**. | Although all versions are deprecated, the term _SSL_ or _SSL/TLS_ is still commonly used to refer to the **TLS protocol** and TLS certificates.                                                             |

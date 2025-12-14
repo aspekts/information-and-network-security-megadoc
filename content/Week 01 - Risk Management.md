@@ -1,3 +1,17 @@
+---
+title: Week 01 - Risk Management
+date: 2025-12-13
+tags:
+  - risk-management
+  - CIA-triad
+  - OWASP
+  - definitions
+aliases:
+  - CIA Triad
+  - Risk Assessment
+  - Threat Modeling
+summary: The core relationships between Threat, Vulnerability, and Risk, plus the OWASP rating methodology.
+---
 ## Cheat Sheet 
 
 | Term                               | Definition                                                                                                                                           | Exam Context/Example                                                                                                                                                                           |
