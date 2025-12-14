@@ -12,7 +12,7 @@ aliases:
   - Threat Modeling
 summary: The core relationships between Threat, Vulnerability, and Risk, plus the OWASP rating methodology.
 ---
-## Cheat Sheet 
+## Key Terms 
 
 | Term                               | Definition                                                                                                                                           | Exam Context/Example                                                                                                                                                                           |
 | :--------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,7 +36,7 @@ summary: The core relationships between Threat, Vulnerability, and Risk, plus th
 | **Possession or Control**          | Refers to the physical disposition of the media on which the data is stored.                                                                         | Losing a shipment of encrypted backup tapes is a possession problem, even if the data itself remains confidential.                                                                             |
 | **Authenticity**                   | Allows discussion about the proper attribution as to the owner or creator of the data in question.                                                   | Violating authenticity occurs if an e-mail message is altered to appear to come from a different e-mail address.                                                                               |
 | **Utility**                        | Refers to how useful the data is to us.                                                                                                              | Encrypted tapes would likely be of very little utility to an unauthorized person, whereas unencrypted tapes would be of much greater utility.                                                  |
-| **Nonrepudiation**                 | Prevents someone from taking an action (e.g., sending an e-mail) and then later denying that he or she has done so.                                  | This concept is critical to e-commerce and can be enforced through mechanisms like digital signatures.                                                                                         |
+| **Nonrepudiation**                 | Prevents someone from taking an action (e.g. sending an e-mail) and then later denying that he or she has done so.                                   | This concept is critical to e-commerce and can be enforced through mechanisms like digital signatures.                                                                                         |
 | **Interception (Attack)**          | Attacks that allow unauthorized users to access data, applications, or environments.                                                                 | Eavesdropping on phone conversations or unauthorized file viewing/copying. Primarily attacks confidentiality.                                                                                  |
 | **Interruption (Attack)**          | Attacks that cause assets to become unusable or unavailable for use, on a temporary or permanent basis.                                              | A DoS attack on a mail server, which affects availability.                                                                                                                                     |
 | **Modification (Attack)**          | Attacks that involve tampering with an asset.                                                                                                        | Altering the contents of a configuration file for a Web server. Primarily an integrity attack.                                                                                                 |
@@ -121,9 +121,9 @@ Risk is assessed using the relationship: $\text{risk} = (\text{impact to asset f
 
 **Answer:** The **Risk Assessment** process outlined involves three main steps:
 
-1. **Identify assets, threat agents, and threats to assets:** This step requires determining what needs protection (the sensitive encryption database and the keys), who the potential attackers are (threat agents, e.g., organized criminals or insiders), and what the unwanted event is (e.g., unauthorized access or theft).
+1. **Identify assets, threat agents, and threats to assets:** This step requires determining what needs protection (the sensitive encryption database and the keys), who the potential attackers are (threat agents, e.g. organised criminals or insiders), and what the unwanted event is (e.g. unauthorized access or theft).
 2. **Identify vulnerabilities that can be exploited:** This involves finding weaknesses, such as the fact that the backup tapes are unencrypted and are transported physically, which can be exploited by the threat.
-3. **Measure probability of occurrence and impact (potential loss) of exploits:** The probability of occurrence (e.g., theft during transit) must be measured, alongside the impact (potential loss), which would be severe since the asset holds highly sensitive customer keys.
+3. **Measure probability of occurrence and impact (potential loss) of exploits:** The probability of occurrence (e.g. theft during transit) must be measured, alongside the impact (potential loss), which would be severe since the asset holds highly sensitive customer keys.
 
 If the unencrypted tapes are stolen, the following **Parkerian Hexad** principles are affected:
 
@@ -131,7 +131,7 @@ If the unencrypted tapes are stolen, the following **Parkerian Hexad** principle
 - **Possession or Control:** This principle refers to the physical disposition of the media. Losing the shipment means the company has lost physical control or possession of the media, even before considering the data's confidentiality status.
 - **Utility (Likely Impact):** If the data were readable (unencrypted), it would be of great utility to an unauthorized person.
 
-To **Mitigate** the risk of theft and data exposure, the organization must implement appropriate countermeasures. A critical logical control measure would be to **mandate encryption** of all sensitive data backup media, ensuring that if possession is lost, confidentiality is maintained (e.g., making the data of very little utility to the unauthorized person).
+To **Mitigate** the risk of theft and data exposure, the organization must implement appropriate countermeasures. A critical logical control measure would be to **mandate encryption** of all sensitive data backup media, ensuring that if possession is lost, confidentiality is maintained (e.g. making the data of very little utility to the unauthorized person).
 
 **2. Question:** A highly motivated competitor attempts to access your confidential source code database by exploiting a known bug in the database software, which would allow them to unauthorizedly read or copy the files. Identify the primary **CIA Triad** security property being attacked, and specify which of the four **attack categories** this action falls under. Finally, explain the purpose of the **Defense in Depth** strategy in managing this type of malicious activity.
 
@@ -141,6 +141,6 @@ This action falls into the **Interception** attack category. Interception attack
 
 The purpose of the **Defense in Depth** strategy in managing this malicious activity is to formulate a **multilayered defense** that allows for a successful defense even if one or more defensive measures fail. The goal is **not** to keep the attacker out permanently, but to **delay the attacker long enough** to notice that an attack is in progress and buy enough time to take active measures to prevent the attack from succeeding. For a source code database, this might involve defenses at multiple layers, such as:
 
-1. **Network perimeter controls** (e.g., firewalls, IDS) to slow the initial intrusion.
-2. **Host-level controls** (e.g., anti-virus, authentication) on the server itself.
-3. **Data-level controls** (e.g., encryption or access controls) on the source code files, ensuring that even if the host is compromised, the data remains protected.
+1. **Network perimeter controls** (e.g. firewalls, IDS) to slow the initial intrusion.
+2. **Host-level controls** (e.g. anti-virus, authentication) on the server itself.
+3. **Data-level controls** (e.g. encryption or access controls) on the source code files, ensuring that even if the host is compromised, the data remains protected.

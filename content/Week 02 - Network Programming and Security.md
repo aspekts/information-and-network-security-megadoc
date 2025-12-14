@@ -12,7 +12,7 @@ aliases:
   - Client-Server
 summary: Technical implementation of sockets, the 3-way handshake, and upgrading to secure connections.
 ---
-## Cheat Sheet
+## Key Terms
 
 | Term                                     | Definition                                                                                                                                                                                                                         | Exam Context/Example                                                                                                                                                                                        |
 | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -32,30 +32,30 @@ summary: Technical implementation of sockets, the 3-way handshake, and upgrading
 | **AWS Certificate Manager (ACM)**        | An AWS service offered to help users meet SSL/TLS requirements. It provisions, manages, and deploys public and private SSL/TLS certificates.                                                                                       | ACM can be used to protect internal resources and maintain SSL/TLS certificates through automated management, including certificate renewals.                                                               |
 ## Difference between SSL and TLS
 
-**Transport Layer Security (TLS)** is the direct successor and upgraded version of **Secure Sockets Layer (SSL)**, developed specifically to resolve the security vulnerabilities found in SSL,. All versions of the older SSL protocol are now deprecated, while TLS versions 1.2 and 1.3 are actively used,.
+**Transport Layer Security (TLS)** is the direct successor and upgraded version of **Secure Sockets Layer (SSL)**, developed specifically to resolve the security vulnerabilities found in SSL. All versions of the older SSL protocol are now deprecated, while TLS versions 1.2 and 1.3 are actively used.
 
 The key operational and security differences between the two protocols include:
 
 ### Handshake Process
 
-- The **SSL handshake** was described as an **explicit connection** and was complex and slow because it involved more steps,.
-- The **TLS handshake** is an **implicit connection**, speeding up the process by having fewer steps and reducing the total number of cipher suites involved,.
+- The **SSL handshake** was described as an **explicit connection** and was complex and slow because it involved more steps.
+- The **TLS handshake** is an **implicit connection**, speeding up the process by having fewer steps and reducing the total number of cipher suites involved.
 
 ### Alert Messages
 
-- **SSL** alert messages are **unencrypted** and limited to only two types: `warning` and `fatal`,.
-- **TLS** alert messages are **encrypted** for additional security and include an extra alert type called `close notify`, which signals the end of the session,.
+- **SSL** alert messages are **unencrypted** and limited to only two types: `warning` and `fatal`.
+- **TLS** alert messages are **encrypted** for additional security and include an extra alert type called `close notify`, which signals the end of the session.
 
 ### Message Authentication and Encryption
 
 - Both protocols use Message Authentication Codes (MACs) for verifying message authenticity and integrity. However, **SSL** uses the **outdated MD5 algorithm** for MAC generation.
-- **TLS** uses **HMAC** (Hash-Based Message Authentication Code) for more complex cryptography and enhanced security,.
-- Regarding **cipher suites** (collections of algorithms used to create encryption keys), **SSL** supports older algorithms that have known security vulnerabilities, while **TLS** uses advanced encryption algorithms,.
+- **TLS** uses **HMAC** (Hash-Based Message Authentication Code) for more complex cryptography and enhanced security.
+- Regarding **cipher suites** (collections of algorithms used to create encryption keys), **SSL** supports older algorithms that have known security vulnerabilities, while **TLS** uses advanced encryption algorithms.
 
 ### Version History and Certificates
 
 - SSL moved through versions 1.0, 2.0, and 3.0 before being replaced. TLS has progressed through versions 1.0, 1.1, 1.2, and 1.3.
-- Though all SSL certificates are no longer in use and **TLS certificates** are the current industry standard, the term _SSL_ or _SSL/TLS_ is still commonly used to refer to the TLS protocol and its certificates,.
+- Though all SSL certificates are no longer in use and **TLS certificates** are the current industry standard, the term _SSL_ or _SSL/TLS_ is still commonly used to refer to the TLS protocol and its certificates.
 
 ## Steps to use Secure Sockets
 The sources outline the sequence of steps for using **secure sockets** (SSL/TLS), which behave similarly to standard TCP sockets but include additional security steps.
@@ -98,7 +98,7 @@ The server sequence involves setup steps for the main server socket, followed by
 7. **Close the server socket**.
 --- 
 
-## Exam Style Questions
+# Exam Style Questions
 ### Short Answer Exam Questions
 
 **Question 1** What specific security improvements does **Transport Layer Security (TLS)** offer over **Secure Sockets Layer (SSL)** concerning message authentication codes (MACs)?

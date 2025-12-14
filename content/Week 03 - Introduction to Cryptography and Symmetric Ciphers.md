@@ -13,7 +13,7 @@ aliases:
   - MAC
 summary: Encryption where keys are shared. Covers AES, RC4, Perfect Secrecy, and Modes of Operation (ECB/CBC).
 ---
-## Cheat Sheet
+## Key Terms
 
 | Term                                        | Definition                                                                                                                                                                                                                     | Exam Context/Example                                                                                                                                                                                       |
 | :------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -212,7 +212,7 @@ Ciphers that combine substitution and permutation circuits repeatedly, often cal
 By iterating rounds of substitution (confusion) and permutation (diffusion), strong modern block ciphers are built. If a cipher has poor diffusion, changing a single letter of the plaintext may only cause a single letter of the ciphertext to change, which makes it vulnerable to cryptanalysis.
 
 
-## ESQs
+# Exam Style Questions
 
 ### Short Answer Exam Questions
 
