@@ -1,5 +1,5 @@
 ---
-title: Week 05 - Web Vulnerabilities
+title: Week 05 - Web App Vulnerabilities and Attacks
 date: 2025-12-14
 tags:
   - web-security

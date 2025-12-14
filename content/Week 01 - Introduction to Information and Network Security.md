@@ -1,5 +1,5 @@
 ---
-title: Week 01 - Risk Management
+title: Week 01 - Introduction to Information and Network Security
 date: 2025-12-13
 tags:
   - risk-management
@@ -41,9 +41,10 @@ summary: The core relationships between Threat, Vulnerability, and Risk, plus th
 | **Interruption (Attack)**          | Attacks that cause assets to become unusable or unavailable for use, on a temporary or permanent basis.                                              | A DoS attack on a mail server, which affects availability.                                                                                                                                     |
 | **Modification (Attack)**          | Attacks that involve tampering with an asset.                                                                                                        | Altering the contents of a configuration file for a Web server. Primarily an integrity attack.                                                                                                 |
 | **Fabrication (Attack)**           | Attacks that involve generating data, processes, communications, or other similar activities with a system.                                          | Generating spurious information in a database or spoofing an email. Primarily affects integrity.                                                                                               |
-The relationship between **Threat, Vulnerability, and Risk** is fundamental to security risk assessment, as risk is only present when a threat can exploit a vulnerability.
 
+--- 
 ### Relationship Between Threat, Vulnerability, and Risk
+The relationship between **Threat, Vulnerability, and Risk** is fundamental to security risk assessment, as risk is only present when a threat can exploit a vulnerability.
 
 1. **Threat:** A threat is defined as the **potential cause of an unwanted event that may harm assets**. In the context of information security, a threat is something that has the potential to cause harm. Examples of threats include malicious actors such as organised criminals or nation states, or even natural disasters.
 2. **Vulnerability:** A vulnerability is a **characteristic of a system that can be exploited by a threat**. Essentially, vulnerabilities are weaknesses, or holes, that a threat can use to cause harm. An example of a vulnerability is running a specific operating system or application, or using a data center populated beyond the capacity of its air-conditioning system.
@@ -80,7 +81,8 @@ Here is a summary of each method and a practical business example:
 
 Risk is assessed using the relationship: $\text{risk} = (\text{impact to asset from exploit of vulnerability}) \text{ x } (\text{probability of occurrence})$. When managing risk, organizations aim to minimize the risk and deploy countermeasures to reduce it.
 
-# Exam Style Simulation
+--- 
+# Exam Style Questions
 
 ### Short Answer Exam Questions
 

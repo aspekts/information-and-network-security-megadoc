@@ -1,5 +1,5 @@
 ---
-title: Week 09 - Network Defense
+title: Week 09 - Network Security
 date: 2025-12-14
 tags:
   - network-defense

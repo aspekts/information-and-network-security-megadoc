@@ -18,13 +18,13 @@ tags:
 ## 📅 Weekly Modules
 
 ### **Foundations**
-* [[Week 01 - Risk Management]]
+* [[Week 01 - Introduction to Information and Network Security]]
     * *Topics:* CIA Triad, OWASP Risk Rating, Risk Treatment (Accept, Transfer, Mitigate).
-* [[Week 02 - Sockets & Networking]]
+* [[Week 02 - Network Programming and Security]]
     * *Topics:* TCP Handshake, Secure vs. Standard Sockets, Client-Server code logic.
 
 ### **Cryptography (The Core)**
-* [[Week 03 - Symmetric Cryptography]]
+* [[Week 03 - Introduction to Cryptography and Symmetric Ciphers]]
     * *Topics:* Stream vs. Block, Perfect Secrecy, OTP, Hash vs. MAC, Modes of Operation (ECB/CBC).
 * [[Week 06 - Public Key Cryptography]]
     * *Topics:* RSA, Diffie-Hellman, Trapdoor Functions, Hybrid Encryption.
@@ -32,15 +32,15 @@ tags:
     * *Topics:* Certificate Authorities, Chain of Trust, Non-repudiation.
 
 ### **System & Web Security**
-* [[Week 04 - Authentication & Human Factors]]
+* [[Week 04 - Human Factors, Passwords and Phishing]]
     * *Topics:* Passwords, Phishing, Salting/Hashing.
-* [[Week 05 - Web Vulnerabilities]]
+* [[Week 05 - Web App Vulnerabilities and Attacks]]
     * *Topics:* SQL Injection (SQLi), XSS, CSRF, Input Validation.
 
 ### **Network Defense & Protocols**
 * [[Week 08 - Security Protocols]]
     * *Topics:* SSL/TLS Handshake, POODLE Attack, Kerberos.
-* [[Week 09 - Network Defense]]
+* [[Week 09 - Network Security]]
     * *Topics:* Firewalls (Packet filtering), IDS vs. IPS, DMZ Architecture.
 
 ---

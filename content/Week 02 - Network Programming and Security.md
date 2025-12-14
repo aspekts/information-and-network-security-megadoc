@@ -1,5 +1,5 @@
 ---
-title: Week 02 - Sockets & Networking
+title: Week 02 - Network Programming and Security
 date: 2025-12-13
 tags:
   - networking
@@ -12,6 +12,7 @@ aliases:
   - Client-Server
 summary: Technical implementation of sockets, the 3-way handshake, and upgrading to secure connections.
 ---
+## Cheat Sheet
 
 | Term                                     | Definition                                                                                                                                                                                                                         | Exam Context/Example                                                                                                                                                                                        |
 | :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,3 +96,51 @@ The server sequence involves setup steps for the main server socket, followed by
 **Server Cleanup:**
 
 7. **Close the server socket**.
+--- 
+
+## Exam Style Questions
+### Short Answer Exam Questions
+
+**Question 1** What specific security improvements does **Transport Layer Security (TLS)** offer over **Secure Sockets Layer (SSL)** concerning message authentication codes (MACs)?
+
+**Answer** Both protocols use Message Authentication Codes (MACs) to verify message authenticity and integrity. However, the **SSL protocol uses the outdated MD5 algorithm** for MAC generation. **TLS uses Hash-Based Message Authentication Code (HMAC)** for more complex cryptography and enhanced security.
+
+**Question 2** Briefly explain the role of a socket from the perspective of the **Operating System (OS)**.
+
+**Answer** For the operating system, sockets are the **end points corresponding to low-level system calls** related to network card(s). They are managed internally by the kernel similarly to file descriptors. When the network card driver receives data, the OS makes this data available in the corresponding socket based on the port number.
+
+**Question 3** How does the SSL handshake process fundamentally differ from the TLS handshake process in terms of connection speed and complexity?
+
+**Answer** The **SSL handshake** was an **explicit connection** that was complex and had more steps. The **TLS handshake** is an **implicit connection** that has fewer steps, resulting in a **faster connection**.
+
+**Question 4** Although all versions of SSL are deprecated, why is the term _SSL_ or _SSL/TLS_ still commonly used in industry terminology?
+
+**Answer** Due to slow cultural change, it is common to find the term _SSL_ describing a TLS connection. In most cases, the terms _SSL_ and _SSL/TLS_ both refer to the **modern TLS protocol** and **TLS certificates**.
+
+**Question 5** What change occurs at the network level (Viewpoint B) when a standard socket transmission is secured using TLS/SSL?
+
+**Answer** To the network itself, sockets are mostly invisible, corresponding only to packets being transmitted. Whether the socket is secured with TLS/SSL has **no impact on the network**, outside of the network devices being **unable to inspect the data transmitted**.
+
+---
+
+### Scenario-Based Long-Form Questions
+
+**Question 1** A developer is tasked with setting up a new secure web server. Detail the sequence of high-level steps (function calls) the developer must implement to correctly configure the server socket to listen for and handle incoming secure client connections, including the necessary security context and certificate management steps.
+
+**Answer** The server process involves setting up the main socket, preparing the security context, looping to handle clients, and finally closing the connection. The sequence is:
+
+1. **Create a socket object/structure**.
+2. **Bind the socket to an IP:port**.
+3. **Listen for new connection**.
+4. **Create a SSL/TLS context**.
+5. **Load certificate and keys in the SSL/TLS context**.
+6. **Loop accepting new client connections** (This loop contains the per-client steps: Get the client socket, wrap the client socket in the SSL/TLS context, loop sending/receiving data with that client, and close this client connection).
+7. **Close the server socket**.
+
+**Question 2** Your company currently relies on an older communication system that uses SSL 3.0. Based on modern protocol standards, discuss three critical security weaknesses present in SSL that necessitate an immediate migration to TLS 1.2 or later.
+
+**Answer** SSL is an older technology containing known security flaws, which prompted the development of TLS as an upgraded version. Three critical weaknesses justifying migration are:
+
+1. **Outdated Message Authentication Code (MAC) Algorithm:** The SSL protocol uses the **MD5 algorithm** for MAC generation, which is now considered outdated. TLS resolves this by using the **Hash-Based Message Authentication Code (HMAC)** for more robust cryptography.
+2. **Unencrypted Alert Messages:** **SSL alert messages** (used for communicating errors and warnings) are **unencrypted**. In contrast, **TLS alerts are encrypted** for additional security.
+3. **Vulnerable Cipher Suites and Complexity:** SSL supports older algorithms with known security vulnerabilities within its **cipher suites**. Additionally, the **SSL handshake** process is complex and slow. TLS resolves this by using **advanced encryption algorithms** and having an implicit, faster handshake with fewer steps.
