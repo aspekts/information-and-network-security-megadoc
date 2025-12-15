@@ -250,7 +250,7 @@ Alice wishes to participate in a sealed-bid auction using a cryptographic commit
     - **Collision Resistance (CR):**
         
         - **Purpose:** Ensures that Alice cannot open her commitment in multiple ways.
-        - **Break Scenario:** If Alice could efficiently find two distinct bids, $x$ (e.g., $$100$) and $x'$ (e.g., $$1$ billion), such that $h(x) = h(x')$, she could wait until all other bids were revealed. Depending on whether $$100$ or $$1$ billion would be more beneficial to her (e.g., depending on whether she won or lost), she could then dishonestly claim that her commitment was for the advantageous bid, thereby breaking the system.
+        - **Break Scenario:** If Alice could efficiently find two distinct bids, $x$ (e.g., $100$) and $x'$ (e.g., $1$ billion), such that $h(x) = h(x')$, she could wait until all other bids were revealed. Depending on whether $100$ or $1$ billion would be more beneficial to her (e.g., depending on whether she won or lost), she could then dishonestly claim that her commitment was for the advantageous bid, thereby breaking the system.
     - **Non-Malleability (NM):**
         
         - **Purpose:** Prevents an attacker from modifying or relating their own commitment to Alice's commitment in a predictable way.
