@@ -11,7 +11,7 @@ tags:
 
 > [!important] Exam Strategy
 > **Goal:** Quick retrieval. Use **Cmd+K** (or Ctrl+K) to search for keywords immediately.
-> **Key Resources:** [[Master Definitions Table]] | [[Formula Sheet]] | [[Acronym Buster]]
+> **Key Resources:** [[Master Definitions Table]] | [[Formula Sheet]] | 
 
 ---
 
