@@ -92,7 +92,11 @@ A **Message Authentication Code (MAC)** is also a fixed-length code generated fr
 
 A MAC combines the integrity check of a hash function with the security of a secret key, acting like a tamper-evident seal that only authorized users can apply. The integrity provided by a hash function alone is more like checking a package's weight against a known standard—it confirms the content hasn't changed, but not who packed it or if someone could sneakily swap the weight tag.
 
-
+| **Method**           | **Order**                                     | **Security Status**                                                                         |
+| -------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Encrypt-then-MAC** | Encrypt plaintext, then MAC the _ciphertext_. | **Safest** (Standard practice). Verifies integrity _before_ decrypting, preventing attacks. |
+| **MAC-then-Encrypt** | MAC plaintext, then Encrypt both.             | **Risky** (Used in SSL, prone to padding oracle attacks like POODLE).                       |
+| **Encrypt-and-MAC**  | Encrypt plaintext, MAC plaintext separately.  | **Weak** (The MAC might leak info about the plaintext).                                     |
 
 ## Difference between Perfect Secrecy and Computational Security
 
@@ -165,7 +169,38 @@ CTR mode transforms a block cipher into a stream cipher, offering the significan
 
 It is important to note that CBC and CTR, while addressing confidentiality concerns, **do not provide protection against active attacks like message tampering** by themselves, and must be used in conjunction with a message integrity mechanism like a Message Authentication Code (MAC).
 
+#### Properties of Counter (CTR) Mode
 
+CTR mode transforms a block cipher into a stream cipher by generating a unique key stream that is XORed with the plaintext blocks.
+
+|Property|Description|Citation|
+|:--|:--|:--|
+|**Keystream Generation**|A random Initialization Vector (IV) is taken as a starting point and is then incremented ($IV+1, IV+2, \ldots$) for each block. The block cipher encrypts this counter value to generate a pseudorandom keystream block $K_i = F_k(IV+i)$.||
+|**Error Propagation**|A transmission bit error in a ciphertext block $c_i$ affects **only** the decryption of that specific block $c_i$.||
+|**Parallelization**|Both **encryption and decryption can be parallelized** (done in parallel) because the keystream for each block can be generated independently of all others. This offers a performance benefit over modes like CBC.||
+|**Random Access**|Yes, CTR mode allows **random access** to any block in the ciphertext. This is possible because the generation of the keystream for block $i$ (based on $IV+i$) does not depend on the encryption of block $i-1$.||
+|**Integrity**|Like all symmetric encryption modes, CTR mode by itself is **not secure against an active attacker** who can tamper with the traffic. It only provides confidentiality (eavesdropping security) and must be used with a message integrity mechanism.||
+
+### The MAC Security Game
+
+A Message Authentication Code (MAC) scheme is formally defined by a pair of algorithms, $(\text{tag}, \text{vrfy})$. The tagging algorithm, $\text{tag}$, takes a key $K$ and a message $M$ to produce a tag $T$, and the verification algorithm, $\text{vrfy}$, checks if the tag is valid for the message and key.
+
+The **MAC Security Game** (or informal security definition) is used to determine if an adversary can successfully break a MAC scheme.
+
+**The Game's Setup:**
+
+1. The adversary interacts with an **oracle** (a black box) that holds the secret key $k$.
+2. The adversary is allowed to select multiple messages ($m_1, m_2, \ldots, m_w$) and submit them to the oracle.
+3. For each message submitted, the oracle returns the corresponding valid MAC tag ($t_1, t_2, \ldots, t_w$) computed using the secret key $k$.
+
+**How an Attacker Wins:**
+
+The adversary **breaks the MAC scheme** if, at the end of the game, they output a new message-tag pair $(m', t')$ such that:
+
+1. The tag $t'$ is a **valid tag** for the message $m'$ when verified by the receiver: $\text{vrfy}_k(m', t') = \text{true}$.
+2. The message $m'$ is a **new message** that was **not** among the messages $m_1, \ldots, m_w$ previously queried by the adversary.
+
+Winning the game essentially means the adversary successfully forges a valid authentication tag for a message they did not previously observe or control. MACs do not, however, inherently protect against "replay attacks" since the verification function ($\text{vrfy}$) has no memory or state to detect if a valid message/tag pair $(m, t)$ is being retransmitted.
 ## Four Standard Cryptographic Attack Models
 
 The four standard cryptographic attack models, classified by the assumed resources available to the adversary (Eve), are as follows:

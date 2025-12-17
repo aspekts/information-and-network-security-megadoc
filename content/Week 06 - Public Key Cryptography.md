@@ -12,6 +12,7 @@ aliases:
   - Trapdoor Functions
 summary: Asymmetric encryption concepts relying on mathematical hard problems like Integer Factorization.
 ---
+
 ## Key Terms
 | Term                                                   | Definition                                                                                                                                                                                                                                                                               | Exam Context/Example                                                                                                                                                                                                     |
 | :----------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -225,7 +226,15 @@ Thus, hybrid encryption leverages the **public-key scheme's ability to establish
 
 _Analogy:_ Think of public-key encryption (RSA) as a massive, heavy armored truck (slow but secure) used only to deliver a single, specialized, lightweight key (the session key). Once that key is delivered, it is used to open the front door of a warehouse where lightning-fast conveyor belts (symmetric encryption/AES) handle the actual huge volume of cargo (the message data).
 
+[!danger] Exam Critical: Textbook RSA vs. Padding
 
+- **Textbook RSA:** The raw math $C = M^e \pmod n$. It is **Insecure** (Not IND-CPA secure).
+    
+    - _Why?_ It is deterministic. If an attacker knows the possible messages (e.g., "Yes" or "No"), they can encrypt both with the public key and see which ciphertext matches the intercepted one 2.
+        
+- **OAEP (Optimal Asymmetric Encryption Padding):** The standard fix. It adds randomness (padding) to the message _before_ encryption.
+    
+    - _Result:_ Encrypting "Yes" twice produces two completely different ciphertexts.
 
 ---
 # Exam Style Questions

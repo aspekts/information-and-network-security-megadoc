@@ -144,3 +144,33 @@ The purpose of the **Defense in Depth** strategy in managing this malicious acti
 1. **Network perimeter controls** (e.g. firewalls, IDS) to slow the initial intrusion.
 2. **Host-level controls** (e.g. anti-virus, authentication) on the server itself.
 3. **Data-level controls** (e.g. encryption or access controls) on the source code files, ensuring that even if the host is compromised, the data remains protected.
+### Steganography and Encryption
+
+**Steganography** is defined as the practice of concealing information within another message or physical object in order to avoid detection. It can be used to hide virtually any type of digital content, including text, image, video, or audio content, and the hidden data is extracted at its destination. The term comes from the Greek words meaning 'hidden or covered' and 'writing'. In cybersecurity, threat actors frequently use steganography to conceal malicious tools, hide data, or send instructions for command-and-control servers within innocuous-seeming digital media files,.
+
+The primary goal of both steganography and cryptography (of which encryption is a form) is to protect a message or information from third parties, but they use different mechanisms to achieve this.
+
+**Distinction from Encryption:**
+
+|Feature|Steganography|Encryption (Cryptography)|
+|:--|:--|:--|
+|**Primary Goal**|**Conceals the existence** of the message.|**Changes the format** of the message.|
+|**Mechanism**|Hides the secret information inside a cover medium (e.g., embedding data in the least significant bits of an image file),,.|Changes the readable information into **ciphertext**, which can only be understood with a decryption key.|
+|**Detection**|Does not change the format of the information and works by **avoiding suspicion**, making it difficult to detect, although it can sometimes be detected through "steganalysis",.|The resulting ciphertext is **easily visible** (it looks scrambled), meaning anyone intercepting the message can easily see that some form of encryption has been applied.|
+|**Usage Context**|Steganography is sometimes used in conjunction with encryption, where the concealed content is first encrypted before being hidden. Encryption itself is a **logical control** used to protect data and enforce security principles like **confidentiality**,. Encrypted data is considered to have **very little utility** to an unauthorized person, unlike unencrypted data,.|
+
+---
+
+### Information Security vs. Cybersecurity
+
+The sources provide a specific legal definition for **Information Security** but do not formally define or distinguish **Cybersecurity** in the introductory material.
+
+#### Information Security
+
+**Information Security** is defined by US law as: **“protecting information and information systems from unauthorized access, use, disclosure, disruption, modification, or destruction”**.
+
+The fundamental goal of Information Security is to protect data, wherever it resides, and system assets from those who would seek to misuse them. This concept has become deeply embedded in many aspects of modern society due to the widespread adoption of computing technology,.
+
+#### Cybersecurity
+
+The sources use the term "cyber" in contexts like "cyber attacks",, "cybersecurity perspective", and "cybersecurity training", but they **do not provide an explicit definition for Cybersecurity** or explain how it differs from Information Security.

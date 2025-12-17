@@ -54,7 +54,15 @@ A comparison of Stateless Packet Filtering firewalls and Stateful Inspection fir
 |**Security Risk**|Attacks can potentially slip through because each packet is examined individually and not in concert with the rest of the traffic.|Only allows traffic that is part of a new or already established connection.|
 
 ---
+**Remote Access Hierarchy (Least to Most Secure)**
 
+1. **Least Secure:** Unencrypted protocols (Telnet, HTTP).
+    
+2. **Weak:** Graphical access with weak/legacy auth (Legacy VNC).
+    
+3. **Better:** RDP (Remote Desktop Protocol) _if_ Tunneled through VPN.
+    
+4. **Best:** **SSH (Secure Shell)**. Strong encryption, certificate-based auth, and can tunnel other traffic (X11 forwarding).
 ### The Difference: Stateful Inspection and the State Table
 
 **Stateful packet inspection firewalls** (stateful firewalls) operate on the same general principle as packet filtering firewalls but are able to keep track of traffic at a granular level.

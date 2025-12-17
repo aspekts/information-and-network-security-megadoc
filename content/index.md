@@ -11,6 +11,7 @@ tags:
 
 > [!important] Exam Strategy
 > **Goal:** Quick retrieval. Use **Cmd+K** (or Ctrl+K) to search for keywords immediately.
+> 
 > **Key Resources:** [[Master Definitions Table]] | [[Formula Sheet]] 
 
 ---
@@ -50,6 +51,7 @@ tags:
  * **[[Mock Paper B]]** – *Focus: Authentication Logic & PKI* 
  * **[[Mock Paper C]]** – *Interactive: Risk Assessment & RSA (Hidden Answers)*  
  * **[[Mock Paper D]]** – *Interactive: Fresh Scenarios & New Numbers (Hidden Answers)* 
+ * **[[Mock Paper E]]** - *Interactive: Revision Quiz Based Test (Hidden Answers)*
  ---
 ## 🧠 Quick Reference Tables
 
