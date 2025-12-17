@@ -11,7 +11,7 @@ tags:
 
 > [!important] Exam Strategy
 > **Goal:** Quick retrieval. Use **Cmd+K** (or Ctrl+K) to search for keywords immediately.
-> **Key Resources:** [[Master Definitions Table]] | [[Formula Sheet]] | 
+> **Key Resources:** [[Master Definitions Table]] | [[Formula Sheet]] 
 
 ---
 
@@ -44,7 +44,13 @@ tags:
     * *Topics:* Firewalls (Packet filtering), IDS vs. IPS, DMZ Architecture.
 
 ---
-
+## 📝 Practice & Mock Exams 
+ 
+ * **[[Mock Paper A]]** – *Focus: Web Vulnerabilities & Crypto Math* 
+ * **[[Mock Paper B]]** – *Focus: Authentication Logic & PKI* 
+ * **[[Mock Paper C]]** – *Interactive: Risk Assessment & RSA (Hidden Answers)*  
+ * **[[Mock Paper D]]** – *Interactive: Fresh Scenarios & New Numbers (Hidden Answers)* 
+ ---
 ## 🧠 Quick Reference Tables
 
 | Concept | vs. | Concept | Key Difference |
