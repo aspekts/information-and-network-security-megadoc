@@ -60,6 +60,33 @@ The key operational and security differences between the two protocols include:
 - SSL moved through versions 1.0, 2.0, and 3.0 before being replaced. TLS has progressed through versions 1.0, 1.1, 1.2, and 1.3.
 - Though all SSL certificates are no longer in use and **TLS certificates** are the current industry standard, the term _SSL_ or _SSL/TLS_ is still commonly used to refer to the TLS protocol and its certificates.
 
+
+## KeyStores and TrustStores
+| **Component**  | **Definition**                                                                                                           | **Analogy**                                | **Exam Context**                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| **KeyStore**   | A repository (file) that holds **your own** Private Keys and Public Certificates. Used to prove your identity to others. | Your **Passport**.                         | Required by the **Server** to complete the handshake (Step: "Load certificate and keys").       |
+| **TrustStore** | A repository (file) that holds the **Public Keys (Certificates)** of the Certificate Authorities (CAs) you trust.        | Your **Contact List** of people you trust. | Used by the **Client** to verify the Server is who they say they are.                           |
+| **SSLContext** | The engine that uses the KeyStore and TrustStore to create the secure socket factory.                                    | The **Guard** checking the passport.       | You must "initialize" the Context with the KeyManager (KeyStore) and TrustManager (TrustStore). |
+## Sockets: A Developer's Reality
+- **The Stream Analogy:** To a programmer, a TCP socket functions exactly like a **File Stream**.
+    
+    - Sending data = Writing to a file (`OutputStream`).
+        
+    - Receiving data = Reading from a file (`InputStream`).
+        
+    - _Exam Keyword:_ The data flow is **the same** as reading a file.
+- **The "Framing" Problem:** unlike a file which has a start and end, a socket stream is continuous.
+    
+    - **Fragmentation:** A single message (e.g., "Hello World") might arrive in two separate packets ("Hel" ... "lo World").
+        
+    - **Buffering:** You cannot just read once. You must implement a **Loop** to buffer data until the complete message arrives.
+        
+- **Blocking:** By default, socket calls are **blocking**.
+    
+    - `accept()`: The server stops and waits (sleeps) until a client connects.
+        
+    - `read()`: The program stops and waits until data arrives
+
 ## Steps to use Secure Sockets
 The sources outline the sequence of steps for using **secure sockets** (SSL/TLS), which behave similarly to standard TCP sockets but include additional security steps.
 
@@ -80,14 +107,27 @@ The client follows these six steps to establish and terminate a secure connectio
 
 The server sequence involves setup steps for the main server socket, followed by iterative steps for handling individual clients, and finally, a cleanup step for the server socket:
 
-**Server Setup and Listening Phase:**
+**Server-Side Logic:**
 
-1. **Create a socket object/structure**.
-2. **Bind the socket to an IP:port**.
-3. **Listen for new connection**.
-4. **Create a SSL/TLS context**.
-5. **Load certificate and keys in the SSL/TLS context**.
-6. **Loop accepting new client connections**.
+1. **Create Socket:** Initialize the socket object.
+    
+2. **Bind:** Attach to a specific Port and IP.
+    
+3. **Listen:** Enter a state of waiting for connections.
+    
+4. **SSL Setup:**
+    
+    - Load the **KeyStore** (Identity).
+        
+    - Initialize the **SSLContext**.
+        
+5. **Accept Loop (The "Server Loop"):**
+    
+    - `while(true)`: Infinite loop to keep server alive.
+        
+    - `accept()`: **Block** and wait for a new client.
+        
+    - _On Connection:_ Create a **New Thread** or process to handle that specific client (so the main loop can go back to waiting).
 
 **Handling Individual Client Connections (Inside the Loop):**
 
@@ -98,7 +138,7 @@ The server sequence involves setup steps for the main server socket, followed by
 
 **Server Cleanup:**
 
-7. **Close the server socket**.
+6. **Close the server socket**.
 --- 
 
 # Exam Style Questions

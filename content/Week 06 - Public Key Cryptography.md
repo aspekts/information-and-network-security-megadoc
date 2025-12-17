@@ -112,7 +112,13 @@ The security of the key public-key cryptosystems, RSA and Diffie-Hellman (and it
 | **ElGamal Variation**               | **Diffie–Hellman Problem** (DHP)        | The security of ElGamal encryption specifically depends on the **Diffie–Hellman problem**: the difficulty of computing $g^{ab}$ from $g^a$ and $g^b$ alone. An efficient algorithm to compute discrete logarithms would solve the DHP. |
 
 ---
+[!warning] RSA Standards & Vulnerabilities
 
+- **Textbook RSA:** ($c = m^e \mod N$). **NOT CPA-Secure**. Deterministic. Vulnerable to geometric attacks.
+    
+- **PKCS#1 v1.5:** An older padding standard. **NOT CPA-Secure** (practically). Vulnerable to **Bleichenbacher's Attack** (a Chosen Ciphertext attack involving padding errors).
+    
+- **OAEP (Optimal Asymmetric Encryption Padding):** The modern standard (PKCS#1 v2.0). **CPA-Secure** and **CCA-Secure**. It introduces randomness _and_ integrity checks to the padding before encryption
 ### Why These Problems are Considered 'Hard'
 
 Both the Integer Factorization Problem (IFP) and the Discrete Logarithm Problem (DLP) are considered "hard" because the known algorithms required to solve them take an **exponential amount of time** relative to the size of the input numbers on classical computers. This makes their computation **practically infeasible** when the numbers (keys) are sufficiently large.
@@ -175,7 +181,17 @@ The mathematical steps replicate the colour analogy using **Discrete Exponentiat
 - Eve knows $G$, $g$, $g^a$, and $g^b$, but must compute $g^{ab}$.
 - Calculating the exponentiation ($g^x$) is **easy** using algorithms like Square and Multiply.
 - However, solving for the secret exponent $a$ from $g^a$ or $b$ from $g^b$ requires computing the **discrete logarithm function** (the inverse of discrete exponentiation), which is **believed to be hard** for classical computers when the numbers are sufficiently large. This computational difficulty of finding the shared secret $g^{ab}$ from the publicly known components is known as the **Diffie–Hellman Problem**.
+### **Formal Security Properties of Diffie-Hellman:**
+> 
+> 1. **Key Agreement:** Both parties finish the protocol holding the _same_ key ($K_A = K_B$).
+>     
+> 2. **Key Secrecy:** No eavesdropper (who knows only $g, p, g^a, g^b$) can determine the key.
+>     
+> 3. **Key Freshness:** If $a$ and $b$ are chosen randomly for _this specific session_, the resulting key is "fresh" and derived solely from this instance (preventing replay of old keys).
+>     
 
+> - _Note:_ Basic DH does **NOT** provide **Authentication**. Alice knows she shares a key with _someone_, but she doesn't know it's Bob (Man-in-the-Middle vulnerability).
+>
 # Practical Application: Hybrid Encryption
 
 The concept of **Hybrid Encryption** is a highly efficient and widely adopted solution that combines the strengths of both public-key (asymmetric) and symmetric-key cryptography to ensure secure communication of large volumes of data.

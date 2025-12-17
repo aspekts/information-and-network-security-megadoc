@@ -97,7 +97,17 @@ A MAC combines the integrity check of a hash function with the security of a sec
 | **Encrypt-then-MAC** | Encrypt plaintext, then MAC the _ciphertext_. | **Safest** (Standard practice). Verifies integrity _before_ decrypting, preventing attacks. |
 | **MAC-then-Encrypt** | MAC plaintext, then Encrypt both.             | **Risky** (Used in SSL, prone to padding oracle attacks like POODLE).                       |
 | **Encrypt-and-MAC**  | Encrypt plaintext, MAC plaintext separately.  | **Weak** (The MAC might leak info about the plaintext).                                     |
+## Constructing MACs
+> 
+> 1. **Cryptographic Hash Functions:** Used to build **HMAC** (e.g., HMAC-SHA256).
+>     
+> 2. **Block Ciphers:** Used to build **CBC-MAC** (encrypting a message in CBC mode and keeping only the final block as the "Tag").
+>     
+> 3. **Pseudorandom Permutations (PRPs):** Since Block Ciphers are PRPs, PRPs are theoretically capable of constructing MACs.
+>     
 
+> - _Note:_ Shift ciphers or simple Stream ciphers (XOR) cannot create secure MACs because they are linear and malleable.
+>
 ## Difference between Perfect Secrecy and Computational Security
 
 The concepts of Perfect Secrecy and Computational Security define the two primary ways to approach the security of an encryption scheme, based on the assumed power of the adversary.

@@ -1,7 +1,10 @@
 ---
-title: Mock Paper E - Official Revision Quiz
+title: Mock Paper E
 date: 2025-05-24
-tags: [exam, official, quiz]
+tags:
+  - exam
+  - official
+  - quiz
 ---
 
 # 🎓 Official Revision Quiz (High Accuracy)
@@ -66,8 +69,10 @@ Securing a socket with TLS requires creating a **KeyStore** (for own keys) and a
 **(Q5) Remote Access Security**
 Which is the **least** secure method listed?
 <details><summary>Reveal</summary>
-**C:** Graphical remote access using a legacy **VNC server** (Often unencrypted passwords).
+
+**C:**  Graphical remote access using a legacy **VNC server** (Often unencrypted passwords).
 *Comparison:* SSH and VPN-tunneled RDP provide encryption.
+
 </details>
 
 **(Q22) Stateful Firewall**
